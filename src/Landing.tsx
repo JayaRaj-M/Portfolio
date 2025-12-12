@@ -1,4 +1,5 @@
 import React from 'react';
+import { Vortex } from './components/ui/vortex';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -11,11 +12,18 @@ import Footer from './components/Footer';
 const Landing: React.FC = () => {
     return (
         <div className="min-h-screen">
-            <div className="fixed inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900 via-[#000b1e] to-black"></div>
+            <Vortex
+                backgroundColor="transparent"
+                rangeY={800}
+                particleCount={500}
+                baseHue={120}
+                className="flex items-center flex-col justify-center px-2 md:px-10 py-4 w-full h-full"
+                containerClassName="fixed inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900 via-[#000b1e] to-black"
+            />
 
             <Navigation />
 
-            <main>
+            <main className="relative z-10">
                 <Hero />
                 <About />
                 <Education />

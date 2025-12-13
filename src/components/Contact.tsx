@@ -2,41 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle, XCircle } from 'lucide-react';
 import GlassCard from './GlassCard';
-
-// ------------------------------------------------------------------
-// CONVEX INTEGRATION NOTE:
-// To fully enable the contact form, you would set up Convex.dev.
-// 1. Run `npx convex dev` to initialize.
-// 2. Create `src/convex/contact.ts` with the following mutation:
-/*
-import { mutation } from "./_generated/server";
-import { v } from "convex/values";
-
-export const submit = mutation({
-  args: {
-    name: v.string(),
-    email: v.string(),
-    message: v.string(),
-  },
-  handler: async (ctx, args) => {
-    await ctx.db.insert("contacts", {
-      name: args.name,
-      email: args.email,
-      message: args.message,
-      status: "new",
-      submittedAt: Date.now(),
-    });
-  },
-});
-*/
-// 3. In this file, import:
-// import { useMutation } from "convex/react";
-// import { api } from "../convex/_generated/api";
-// 4. Inside the component:
-// const submitContact = useMutation(api.contact.submit);
-// await submitContact({ name, email, message });
-// ------------------------------------------------------------------
-
+import { SpinningLogos } from './ui/spinning-logos';
 const Contact: React.FC = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [toast, setToast] = useState<{ type: 'success' | 'error', message: string } | null>(null);
@@ -75,58 +41,64 @@ const Contact: React.FC = () => {
 
     return (
         <section id="contact" className="py-20 px-4 relative">
-            <div className="max-w-2xl mx-auto">
-                <div className="text-center mb-12">
+            <div className="max-w-6xl mx-auto">
+                <div className="text-center mb-16">
                     <h2 className="text-5xl font-bold mb-4">Get In Touch</h2>
                     <p className="text-gray-400">
                         Have a project in mind or want to discuss new opportunities?
                     </p>
                 </div>
 
-                <GlassCard className="p-8">
-                    <div className="space-y-6">
-                        <div>
-                            <label className="block text-sm font-medium mb-2">Name</label>
-                            <input
-                                type="text"
-                                required
-                                value={formData.name}
-                                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:border-emerald-400 transition-colors text-white placeholder-gray-500"
-                                placeholder="Your name"
-                            />
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <GlassCard className="p-8 order-2 lg:order-1">
+                        <div className="space-y-6">
+                            <div>
+                                <label className="block text-sm font-medium mb-2">Name</label>
+                                <input
+                                    type="text"
+                                    required
+                                    value={formData.name}
+                                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:border-emerald-400 transition-colors text-white placeholder-gray-500"
+                                    placeholder="Your name"
+                                />
+                            </div>
+                            <div>
+                                <label className="block text-sm font-medium mb-2">Email</label>
+                                <input
+                                    type="email"
+                                    required
+                                    value={formData.email}
+                                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:border-emerald-400 transition-colors text-white placeholder-gray-500"
+                                    placeholder="your.email@example.com"
+                                />
+                            </div>
+                            <div>
+                                <label className="block text-sm font-medium mb-2">Message</label>
+                                <textarea
+                                    required
+                                    rows={5}
+                                    value={formData.message}
+                                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:border-emerald-400 transition-colors resize-none text-white placeholder-gray-500"
+                                    placeholder="Your message..."
+                                />
+                            </div>
+                            <button
+                                onClick={handleContactSubmit}
+                                disabled={isSubmitting}
+                                className="w-full py-3 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-lg font-semibold hover:shadow-lg hover:shadow-emerald-500/50 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                            >
+                                {isSubmitting ? 'Sending...' : 'Send Message'}
+                            </button>
                         </div>
-                        <div>
-                            <label className="block text-sm font-medium mb-2">Email</label>
-                            <input
-                                type="email"
-                                required
-                                value={formData.email}
-                                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:border-emerald-400 transition-colors text-white placeholder-gray-500"
-                                placeholder="your.email@example.com"
-                            />
-                        </div>
-                        <div>
-                            <label className="block text-sm font-medium mb-2">Message</label>
-                            <textarea
-                                required
-                                rows={5}
-                                value={formData.message}
-                                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:border-emerald-400 transition-colors resize-none text-white placeholder-gray-500"
-                                placeholder="Your message..."
-                            />
-                        </div>
-                        <button
-                            onClick={handleContactSubmit}
-                            disabled={isSubmitting}
-                            className="w-full py-3 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-lg font-semibold hover:shadow-lg hover:shadow-emerald-500/50 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                        >
-                            {isSubmitting ? 'Sending...' : 'Send Message'}
-                        </button>
+                    </GlassCard>
+
+                    <div className="order-1 lg:order-2 flex justify-center">
+                        <SpinningLogos />
                     </div>
-                </GlassCard>
+                </div>
             </div>
 
             {/* Toast Notification */}

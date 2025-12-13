@@ -5,7 +5,7 @@ import GlassCard from './GlassCard';
 
 const Hero: React.FC = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 pt-20">
+    <section id="home" className="min-h-screen flex items-center justify-center px-4 pt-20">
       <div className="max-w-6xl w-full grid md:grid-cols-2 gap-8 items-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -22,36 +22,36 @@ const Hero: React.FC = () => {
             </span>
           </h1>
           <p className="text-gray-300 text-lg mb-8">
-            Full Stack Developer passionate about creating scalable, efficient, and user-friendly solutions. 
+            Full Stack Developer passionate about creating scalable, efficient, and user-friendly solutions.
             Integrating strong technical foundations with analytical thinking.
           </p>
           <div className="flex gap-4 mb-8">
-            <a 
-              href="#" 
+            <a
+              href="#"
               className="px-8 py-3 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full hover:shadow-lg hover:shadow-emerald-500/50 transition-all font-semibold"
             >
               Download Resume
             </a>
           </div>
           <div className="flex gap-4">
-            <a 
-              href="https://linkedin.com" 
+            <a
+              href="https://linkedin.com"
               className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-all"
               target="_blank"
               rel="noopener noreferrer"
             >
               <Linkedin className="w-5 h-5" />
             </a>
-            <a 
-              href="https://github.com" 
+            <a
+              href="https://github.com"
               className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-all"
               target="_blank"
               rel="noopener noreferrer"
             >
               <Github className="w-5 h-5" />
             </a>
-            <a 
-              href="#" 
+            <a
+              href="#"
               className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-all"
             >
               <Code2 className="w-5 h-5" />

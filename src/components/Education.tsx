@@ -20,7 +20,7 @@ const Education: React.FC = () => {
 
                     <GlassCard className="p-6" hover>
                         <h3 className="text-xl font-semibold text-emerald-400 mb-2">
-                            BPMHSS Higher Secondary School
+                            SVM Higher Secondary School
                         </h3>
                         <p className="text-gray-300">Computer Science</p>
                         <div className="flex justify-between mt-2 text-sm text-gray-400">

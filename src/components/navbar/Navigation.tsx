@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react"
+import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { User, Code2, FolderGit2, Mail, Home } from "lucide-react"
 import GlassCard from '../GlassCard';
 import { cn } from "@/lib/utils"
 
-const Navigation: React.FC = () => {
+const Navigation = () => {
   const [mounted, setMounted] = useState(false)
   const [hoveredTab, setHoveredTab] = useState<string | null>(null)
   const [activeTab, setActiveTab] = useState<string>("Home")
@@ -225,14 +225,14 @@ const Navigation: React.FC = () => {
                 </a>
               )
             })}
-
-            <a
-              href="#contact"
-              className="ml-4 px-6 py-2 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full hover:shadow-lg hover:shadow-emerald-500/50 transition-all font-semibold"
-            >
-              Let's Chat
-            </a>
           </div>
+
+          <a
+            href="#contact"
+            className="hidden md:flex items-center justify-center ml-4 px-6 py-2 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full hover:shadow-lg hover:shadow-emerald-500/50 transition-all font-semibold"
+          >
+            Let&apos;s Chat
+          </a>
         </div>
       </GlassCard>
     </nav>

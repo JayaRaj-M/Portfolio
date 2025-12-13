@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Linkedin, Github, Code2 } from 'lucide-react';
 import GlassCard from './GlassCard';
+import jayarajImage from '../assets/JAYARAJ.png';
 
 const Hero: React.FC = () => {
   return (
@@ -35,7 +36,7 @@ const Hero: React.FC = () => {
           </div>
           <div className="flex gap-4">
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/jaya-raj-67298a326?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
               className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-all"
               target="_blank"
               rel="noopener noreferrer"
@@ -43,7 +44,7 @@ const Hero: React.FC = () => {
               <Linkedin className="w-5 h-5" />
             </a>
             <a
-              href="https://github.com"
+              href="https://github.com/JayaRaj-M"
               className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-all"
               target="_blank"
               rel="noopener noreferrer"
@@ -66,9 +67,13 @@ const Hero: React.FC = () => {
           className="relative"
         >
           <GlassCard className="p-8 h-96 flex items-center justify-center">
-            <div className="text-center">
-              <div className="w-48 h-48 mx-auto bg-gradient-to-br from-emerald-500 to-cyan-500 rounded-full mb-4" />
-            </div>
+            <GlassCard className="w-72 h-72 rounded-full overflow-hidden border-4 border-emerald-500/20 p-0">
+              <img
+                src={jayarajImage}
+                alt="Jayaraj M"
+                className="w-full h-full object-cover"
+              />
+            </GlassCard>
           </GlassCard>
           <motion.div
             animate={{ y: [0, -10, 0] }}

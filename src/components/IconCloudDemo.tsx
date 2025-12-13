@@ -17,9 +17,7 @@ const slugs = [
     "git",
     "jira",
     "github",
-    "gitlab",
     "visualstudiocode",
-    "androidstudio",
     "figma",
 ]
 

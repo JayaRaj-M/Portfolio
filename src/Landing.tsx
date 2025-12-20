@@ -7,6 +7,7 @@ import Skills from './components/Skills';
 import Education from './components/Education';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
+import Gallery from './components/Gallery';
 import Footer from './components/footer/Footer';
 const Landing: React.FC = () => {
     return (
@@ -29,6 +30,7 @@ const Landing: React.FC = () => {
                 <Skills />
                 <Projects />
                 <Contact />
+                <Gallery/>
             </main>
 
             <Footer />

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { User, Code2, FolderGit2, Mail, Home } from "lucide-react"
+import { User, Code2, FolderGit2, Mail, Home,Image } from "lucide-react"
 import GlassCard from '../GlassCard';
 import { cn } from "@/lib/utils"
 
@@ -18,6 +18,7 @@ const Navigation = () => {
     { name: "About", url: "#about", icon: User },
     { name: "Skills", url: "#skills", icon: Code2 },
     { name: "Projects", url: "#projects", icon: FolderGit2 },
+    { name: "Gallery", url: "#gallery", icon: Image },
     { name: "Contact", url: "#contact", icon: Mail }
   ]
 

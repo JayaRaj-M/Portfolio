@@ -3,12 +3,9 @@ import { motion } from 'framer-motion';
 
 const Gallery: React.FC = () => {
     const images = [
-        '/images/gallery1.jpg',
-        '/images/gallery2.jpg',
-        '/images/gallery3.jpg',
-        '/images/gallery4.jpg',
-        '/images/gallery5.jpg',
-        '/images/gallery6.jpg',
+        './assets/CC&MC.png',
+        './assets/Madcclub.png',
+        './assets/SIHGeoAt.png' 
     ];
     return (
         <section className="py-20 px-4 bg-black/20">
